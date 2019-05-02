@@ -19,6 +19,9 @@
 
 (defvar myPackages
   '(better-defaults
+    ein
+    elpy
+    flycheck
     material-theme))
 
 (mapc #'(lambda (package)
@@ -28,60 +31,9 @@
 
 
 
+
 ;; BASIC CUSTOMIZATION
 ;; --------------------------------------
-
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(elpy-syntax-check-command "/usr/local/bin/flake8")
- '(inhibit-startup-screen t)
- '(initial-frame-alist (quote ((fullscreen . maximized))))
- '(package-selected-packages
-   (quote
-    (julia-mode
-     cuda-mode
-     vscode-icon
-     ac-math
-     company-math
-     company-auctex
-     company
-     auctex-lua
-     auctex-latexmk
-     flymake
-     web-mode
-     mmm-mode
-     sphinx-mode
-     python-mode
-     auto-complete-rst
-     python-docstring
-     markdown-mode+
-     bibretrieve
-     latex-extra
-     pdf-tools
-     py-autopep8
-     flycheck
-     bash-completion
-     magit
-     elpy
-     dockerfile-mode
-     yaml-mode
-     markdown-preview-mode
-     markdown-mode
-     matlab-mode
-     jedi
-     epc
-     projectile)))
- '(python-shell-interpreter "/usr/local/bin/ipython3"))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
 ; Theme
 ;; (load-theme 'deeper-blue)
@@ -105,7 +57,6 @@
 
 (add-hook 'mouse-leave-buffer-hook 'stop-using-minibuffer)
 
-
 ;; Bash completions in shell mode
 (autoload 'bash-completion-dynamic-complete 
    "bash-completion"
@@ -128,11 +79,6 @@
 (global-set-key "\M-8" (lambda () (interactive) (insert "[")))
 (global-set-key "\M-9" (lambda () (interactive) (insert "]")))
 
-
-;; (global-set-key "\M-7" (lambda () (interactive) (insert "\\")))
-
-;; (global-set-key (kbd "|") (lambda () (interactive) (insert  "{")))
-;; (global-set-key (kbd "≈") (lambda () (interactive) (insert  "}")))
 
 ;; ; Dead keys
 (define-key key-translation-map [dead-circumflex] "^")
@@ -184,6 +130,12 @@
 ;; Spell check
 (setq ispell-program-name "/usr/local/bin/aspell")
 
+;; FLYCHECK
+
+(global-flycheck-mode)
+(package-install 'exec-path-from-shell)
+(exec-path-from-shell-initialize)
+
 
 ;; PYTHON STUFF
 ;; --------------------------------------
@@ -191,36 +143,13 @@
 
 
 (require 'elpy)
-(add-to-list 'load-path "~/.emacs.d/elpy/")
-
-(pyvenv-activate "~/miniconda3")
-
 (elpy-enable)
-
-
-;; Use JEDI
-(setq elpy-rpc-backend "jedi")
-(setq elpy-rpc-python-command "/usr/local/bin/python3")
-
-;; When using C-c C-c we open ipython
-(setenv "IPY_TEST_SIMPLE_PROMPT" "1")
-(setq python-shell-interpreter "/usr/local/bin/ipython"
-      python-shell-interpreter-args "-i")
-(setq python-shell-interpreter "/usr/local/bin/ipython"
-      python-shell-interpreter-args "--simple-prompt --pprint")
-
-(setq elpy-eldoc-show-current-function nil)
 
 ;; Real time spell check --------
 
-(when (require 'flycheck nil t)
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
-
-;; ------------------
-
-(require 'python-docstring)
-(add-hook 'python-mode-hook (lambda () (python-docstring-mode t)))
+;; (when (require 'flycheck nil t)
+;;   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+;;   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
 
 ;; ------------- DROP DOWN FUNCTION MENY -------------------
@@ -373,11 +302,6 @@ TeX-source-correlate-start-server t)
 ;; MARKDOWN STUFF
 ;; --------------------------------------
 (setq markdown-command "/usr/local/bin/pandoc")
-;; (add-to-list 'load-path' "~/.emacs.d/plugins/realtime-emacs-markdown-view/" )
-
-
-
-;; (setq debug-on-error t)
 
 ;; ITERM2 MOUSE SUPPORT
   (unless window-system
@@ -390,3 +314,17 @@ TeX-source-correlate-start-server t)
 
 ;; Turn of debugger
 (setq debug-on-error nil)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (exec-path-from-shell yaml-mode web-mode vscode-icon sr-speedbar sphinx-mode python-mode python-docstring py-autopep8 projectile pdf-tools mmm-mode matlab-mode material-theme markdown-preview-mode markdown-mode+ magit latex-extra julia-mode jedi flymake-python-pyflakes flycheck elpy ein dockerfile-mode cuda-mode company-math company-auctex bibretrieve better-defaults bash-completion auto-complete-rst auctex-lua auctex-latexmk ac-math ac-ispell))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
