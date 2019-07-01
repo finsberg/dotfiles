@@ -5,6 +5,9 @@ export LC_ALL=en_US.UTF-8
 # Path to Homebrew
 export PATH=/usr/local/bin:$PATH
 
+# Path to VSCODE
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
 # Local path
 export PATH=${HOME}/local/bin:$PATH
 export LD_LIBRARY_PATH=${HOME}/local/lib:$LD_LIBRARY_PATH
@@ -30,3 +33,9 @@ unset __conda_setup
 # <<< conda init <<<
 
 export GOPATH=${HOME}/go
+
+# PDF-tools
+export PATH=/usr/local/opt/qt/bin:/usr/local/opt/nss/bin:$PATH
+export PKG_CONFIG_PATH="/usr/local/opt/qt/lib/pkgconfig:/usr/local/opt/nss/lib/pkgconfig:$PKG_CONFIG_PATH"
+#export LDFLAGS="-L/usr/local/opt/nss/lib -L/usr/local/opt/qt/lib $LDFLAGS"
+#export CPPFLAGS="-I/usr/local/opt/nss/include" -I/usr/local/opt/qt/include"

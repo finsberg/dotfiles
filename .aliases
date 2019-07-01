@@ -31,6 +31,9 @@ alias egrep='egrep --color=auto'
 # Copy my public key to the pasteboard
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | printf '=> Public key copied to pasteboard.\n'"
 
+# C++11 for g++
+alias g++='/usr/local/bin/g++-8 -std=c++11'
+
 
 # Some binaries
 alias paraview="/Applications/ParaView-5.5.2.app/Contents/MacOS/paraview"
