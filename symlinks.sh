@@ -2,7 +2,7 @@
 dotfiledir=${HOME}/local/src/dotfiles
 
 # list of files/folders to symlink in ${homedir}
-files="bash_profile bashrc bash_prompt aliases paths"
+files="bash_profile bashrc bash_prompt aliases paths secrets"
 
 # change to the dotfiles directory
 echo "Changing to the ${dotfiledir} directory"
