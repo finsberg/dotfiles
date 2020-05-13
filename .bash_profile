@@ -11,5 +11,9 @@ if [ -f ~/.git-completion.bash ]; then
     source ~/.git-completion.bash
 fi
 
+if [ -f ~/.secrets ]; then
+    source ~/.secrets
+fi
+
 # Autojump
 [[ -s ${HOME}/.autojump/etc/profile.d/autojump.sh ]] && source ${HOME}/.autojump/etc/profile.d/autojump.sh
