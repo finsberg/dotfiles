@@ -15,7 +15,13 @@ export LD_LIBRARY_PATH=${HOME}/local/lib:$LD_LIBRARY_PATH
 # npm / node.js stuff
 export PATH=${HOME}/.npm-global/bin:$PATH
 
-# added by Miniconda3 4.5.12 installer
+# pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# Favor conda over pyenv
+# added by Miniconda3 4.5.12 installer 
 # >>> conda init >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$(CONDA_REPORT_ERRORS=false '${HOME}/miniconda3/bin/conda' shell.bash hook 2> /dev/null)"
@@ -39,3 +45,6 @@ export PATH=/usr/local/opt/qt/bin:/usr/local/opt/nss/bin:$PATH
 export PKG_CONFIG_PATH="/usr/local/opt/qt/lib/pkgconfig:/usr/local/opt/nss/lib/pkgconfig:$PKG_CONFIG_PATH"
 #export LDFLAGS="-L/usr/local/opt/nss/lib -L/usr/local/opt/qt/lib $LDFLAGS"
 #export CPPFLAGS="-I/usr/local/opt/nss/include" -I/usr/local/opt/qt/include"
+
+# C - include path
+export CPATH=/usr/local/include:$CPATH
