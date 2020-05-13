@@ -44,3 +44,6 @@ alias gmsh="/usr/local/Cellar/gmsh/4.3.0/bin/gmsh"
 # Show/hide hidden files in Finder
 alias showdotfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hidedotfiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+# UiO ssh
+alias uio="ssh -YC henrinfi@login.ifi.uio.no"
