@@ -53,4 +53,6 @@ alias hidedotfiles="defaults write com.apple.finder AppleShowAllFiles -bool fals
 alias uio="ssh -YC henrinfi@login.ifi.uio.no"
 
 # Python
-# export PYTHONBREAKPOINT=ipdb.set_trace
+
+# Git
+alias uncommit='git log -1 && git reset HEAD^1'

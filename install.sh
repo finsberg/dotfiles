@@ -9,11 +9,14 @@
 # Download Git Auto-Completion
 curl "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash" > ${HOME}/.git-completion.bash
 
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # Run the Homebrew Script
 ./brew.sh
 
-# Install miniconda
-curl -s https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh | bash
+# Run Conda
+./conda.sh
 
 # Install autojump
 git clone git://github.com/wting/autojump.git && cd autojump && ./install.py
