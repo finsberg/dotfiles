@@ -43,7 +43,7 @@ alias gcc='/usr/local/bin/gcc-10'
 alias paraview="/Applications/ParaView-5.5.2.app/Contents/MacOS/paraview"
 alias czicmd="/Users/henriknf/local/src/libCZI/build/Src/CZICmd/CZICmd"
 alias julia="/Applications/Julia-1.0.app/Contents/Resources/julia/bin/julia"
-alias gmsh="/usr/local/Cellar/gmsh/4.3.0/bin/gmsh"
+alias gmsh="/usr/local/Cellar/gmsh/4.7.0/bin/gmsh"
 
 # Show/hide hidden files in Finder
 alias showdotfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"

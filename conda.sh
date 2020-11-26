@@ -14,6 +14,10 @@ condax install flake8
 condax install mypy
 condax install pandoc
 condax install isort
+condax install pre-commit
+condax install sphinx
+condax install cookiecutter
+
 
 # Install packages that we allways use
-conda install ipython jupyter scipy numpy matplotlib
+conda install ipython jupyter scipy numpy matplotlib virtualenv, cmake
