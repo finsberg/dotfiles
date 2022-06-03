@@ -10,9 +10,6 @@ brew install tree
 brew install aspell
 brew install libomp
 brew install ssh-vault
-brew install redis
-brew install git-crypt
-brew install gcc
 
 # Delete old emacs (if any)
 sudo rm -f /usr/bin/emacs
@@ -35,7 +32,7 @@ brew cask install docker
 brew cask install latexit
 brew cask install adobe-acrobat-reader
 brew cask install mactex
-
+brew cask instll db-browser-for-sqlite
 
 # Install Source Code Pro Font
 brew tap homebrew/cask-fonts
