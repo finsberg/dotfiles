@@ -2,7 +2,7 @@
 dotfiledir=${HOME}/local/src/dotfiles
 
 # list of files/folders to symlink in ${homedir}
-files="bash_profile bashrc bash_prompt aliases paths secrets"
+files="aliases paths secrets"
 
 # change to the dotfiles directory
 echo "Changing to the ${dotfiledir} directory"
@@ -16,6 +16,6 @@ for file in ${files}; do
 done
 
 # Now create symlink to emacs file
-mkdir -p ${HOME}/.emacs.d/
-echo "Creating symlink to emacs file"
-ln -sf ${dotfiledir}/.emacs ${HOME}/.emacs.d/init.el
+#mkdir -p ${HOME}/.emacs.d/
+#echo "Creating symlink to emacs file"
+#ln -sf ${dotfiledir}/.emacs ${HOME}/.emacs.d/init.el

@@ -1,46 +1,47 @@
 # Turns off anoying error when ssh to linux servers
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+#export LANG=en_US.UTF-8
+#export LC_ALL=en_US.UTF-8
 
 # Path to Homebrew
-export PATH=/usr/local/bin:$PATH
+#export PATH=/usr/local/bin:$PATH
 
 # Path to VSCODE
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+#export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # Local path
 export PATH=${HOME}/local/bin:$PATH
-export LD_LIBRARY_PATH=${HOME}/local/lib:$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH=${HOME}/local/lib:$LD_LIBRARY_PATH
 
 # npm / node.js stuff
 export PATH=${HOME}/.npm-global/bin:$PATH
-
-export GOPATH=${HOME}/go
+ls
+#export GOPATH=${HOME}/go
 
 # PDF-tools
-export PATH=/usr/local/opt/qt/bin:/usr/local/opt/nss/bin:$PATH
-export PKG_CONFIG_PATH="/usr/local/opt/qt/lib/pkgconfig:/usr/local/opt/nss/lib/pkgconfig:$PKG_CONFIG_PATH"
+#export PATH=/usr/local/opt/qt/bin:/usr/local/opt/nss/bin:$PATH
+#export PKG_CONFIG_PATH="/usr/local/opt/qt/lib/pkgconfig:/usr/local/opt/nss/lib/pkgconfig:$PKG_CONFIG_PATH"
 #export LDFLAGS="-L/usr/local/opt/nss/lib -L/usr/local/opt/qt/lib $LDFLAGS"
 #export CPPFLAGS="-I/usr/local/opt/nss/include" -I/usr/local/opt/qt/include"
 
 # C - include path
-export CPATH=/usr/local/include:$CPATH
+#export CPATH=/usr/local/include:$CPATH
 
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/henriknf/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/henriknf/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/henriknf/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/henriknf/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+# __conda_setup="$('/Users/henriknf/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/henriknf/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/Users/henriknf/miniconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/henriknf/miniconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
 # <<< conda initialize <<<
 
-# condax
-export PATH="/Users/henriknf/.local/bin:$PATH"
+# pipx
+export PATH=${HOME}/.local/bin:$PATH
+export PYTHONPATH=/opt/homebrew/lib:$PYTHONPATH
