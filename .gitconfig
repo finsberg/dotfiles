@@ -1,0 +1,35 @@
+[init]
+	defaultBranch = main
+[core]
+	editor = code --wait
+[user]
+	name = Henrik Finsberg
+	email = henriknf@simula.no
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[url "ssh://git@github.com/"]
+
+[alias]
+    # Difftastic aliases, so `git dlog` is `git log` with difftastic and so on.
+    dlog = -c diff.external=difft log --ext-diff
+    dshow = -c diff.external=difft show --ext-diff
+    ddiff = -c diff.external=difft diff
+	
+	# history: This is pretty much the only way I look at my log. Aside from providing one-line logs,
+	#          it also shows the branching in/out
+	l =  log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	# branch delete: This checks out your local main branch and deletes all local branches
+	#                that have already been merged to main
+	brd = !sh -c \"git checkout main && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d\"
+	# quick amend: Amend my staged changes to the last commit, keeping the same commit message
+	amend = commit --amend -C HEAD
+	# forced pull: You have a local branch (e.g. for reviewing), but someone else did a forced push
+	#              update on the remote branch. A regular git pull will fail, but this will just set
+	#              the local branch to match the remote branch. BEWARE: this will overwrite any local
+	#              commits you have made on this branch that haven't been pushed.
+	pullf = !sh -c \"git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)\"	
+	# cleanup: This checks out your local main branch and deletes all local branches that have already been merged to main or develop
+    cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 -r git branch -d"
